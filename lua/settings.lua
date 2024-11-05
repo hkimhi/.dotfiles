@@ -11,6 +11,7 @@ vim.scriptencoding = "utf-8"
 -- vim.cmd.colorscheme('catppuccin-macchiato')
 -- vim.cmd.colorscheme("desert")
 vim.cmd.colorscheme("nordfox")
+-- vim.cmd.colorscheme("dawnfox")
 
 -- vim.treesitter.start()
 
@@ -41,5 +42,6 @@ o.inccommand = "split" -- When nonempty, shows the effects of :substitute, :smag
 o.splitbelow = true -- default behaviour of a horizontal split is below the current window
 o.splitright = true -- default behaviour of a vertical split is to the right of the current window
 o.termguicolors = true
-o.wrap = false
+o.wrap = true
 o.linebreak = true
+

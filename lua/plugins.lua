@@ -1,4 +1,5 @@
 api = vim.api
+g = vim.g
 
 -- lazy.nvim package manager setup
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -17,6 +18,21 @@ vim.opt.rtp:prepend(lazypath)
 -- add plugins here, of the form {<name>, <options>}
 require("lazy").setup({
 	-- {"ms-jpq/coq_nvim", branch='coq'},
+	{
+		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+		config = function()
+			require("lsp_lines").setup()
+
+			-- Disable virtual_text since it's redundant due to lsp_lines
+			vim.diagnostic.config({
+				virtual_text = false,
+			})
+
+			-- use <Leader>l to toggle lsp_lines
+			vim.keymap.set("", "<Leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+		end,
+		enabled = false,
+	},
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
@@ -113,6 +129,7 @@ require("lazy").setup({
 	-- 	priority = 1000,
 	-- },
 	"EdenEast/nightfox.nvim",
+	"lunarvim/Onedarker.nvim",
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
@@ -146,18 +163,6 @@ require("lazy").setup({
 		config = true,
 		cmd = "Glow",
 	},
-	{
-		"ErichDonGubler/lsp_lines.nvim",
-		config = function()
-			require("lsp_lines").setup()
-
-			-- Disable virtual_text since it's redundant due to lsp_lines
-			vim.diagnostic.config({
-				virtual_text = false,
-			})
-		end,
-		enabled = false,
-	},
 	"shaunsingh/solarized.nvim",
 	-- {
 	-- 	"maxmx03/solarized.nvim",
@@ -178,4 +183,50 @@ require("lazy").setup({
 	"jiangmiao/auto-pairs",
 	"lukas-reineke/indent-blankline.nvim",
 	"tpope/vim-surround",
+	{
+		"HakonHarnes/img-clip.nvim",
+		event = "VeryLazy",
+		keys = {
+			-- suggested keymap
+			{ "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
+		},
+	},
+	"jannis-baum/vivify.vim",
+	{
+		"kawre/leetcode.nvim",
+		build = ":TSUpdate html",
+		dependencies = {
+				"nvim-telescope/telescope.nvim",
+				"nvim-lua/plenary.nvim", -- required by telescope
+				"MunifTanjim/nui.nvim",
+
+				-- optional
+				"nvim-treesitter/nvim-treesitter",
+				"rcarriga/nvim-notify",
+				"nvim-tree/nvim-web-devicons",
+		},
+		opts = {
+				-- configuration goes here
+				lang = "python3"
+		},
+	},
+	{
+			'maxmx03/fluoromachine.nvim',
+			lazy = false,
+			priority = 1000,
+			config = function ()
+			 local fm = require 'fluoromachine'
+
+			 fm.setup {
+					glow = true,
+					theme = 'fluoromachine',
+					transparent = true,
+			 }
+
+			 vim.cmd.colorscheme 'fluoromachine'
+			end
+	},
+	{
+		'sakhnik/nvim-gdb'
+	},
 })

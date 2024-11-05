@@ -18,9 +18,6 @@ vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help ta
 -- use CTRL+h to enter undotree
 -- vim.keymap.set("n", "<C-h>", vim.cmd.UndotreeToggle)
 
--- use <Leader>l to toggle lsp_lines
-vim.keymap.set("", "<Leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
-
 -- use <leader>f to format current buffer
 vim.keymap.set("n", "<leader>f", ":Format<CR>", { noremap = true, silent = true })
 -- use <leader>F to format and write current buffer
@@ -36,3 +33,10 @@ vim.keymap.set("v", "<C-_>", "gc", { remap = true, silent = true })
 -- don't copy text when deleting by throwing it all into the black hole register ("_)
 -- vim.keymap.set("n", "d", '"_d', { remap = false, silent = true })
 -- vim.keymap.set("v", "d", '"_d', { remap = false, silent = true })
+
+vim.api.nvim_set_keymap('n', '<leader>l', ':lua ToggleVirtualText()<CR>', { noremap = true, silent = true })
+
+function ToggleVirtualText()
+  local current_state = vim.diagnostic.config().virtual_text
+  vim.diagnostic.config({ virtual_text = not current_state })
+end
