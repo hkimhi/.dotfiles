@@ -10,8 +10,9 @@ vim.scriptencoding = "utf-8"
 -- vim.cmd.colorscheme('catppuccin-frappe')
 -- vim.cmd.colorscheme('catppuccin-macchiato')
 -- vim.cmd.colorscheme("desert")
-vim.cmd.colorscheme("nordfox")
+-- vim.cmd.colorscheme("nordfox")
 -- vim.cmd.colorscheme("dawnfox")
+vim.cmd.colorscheme("fluoromachine")
 
 -- vim.treesitter.start()
 
@@ -45,3 +46,6 @@ o.termguicolors = true
 o.wrap = true
 o.linebreak = true
 
+vim.diagnostic.config({
+	virtual_text = false
+})

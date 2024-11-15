@@ -49,7 +49,7 @@ require("lazy").setup({
 			api.nvim_create_autocmd("ColorScheme", { command = "HighlightColors On" })
 		end,
 	},
-	-- "tpope/vim-fugitive",
+	"tpope/vim-fugitive",
 	{
 		-- TODO start using this after you've gotten used to normal nvim
 		"ThePrimeagen/harpoon",
@@ -228,5 +228,15 @@ require("lazy").setup({
 	},
 	{
 		'sakhnik/nvim-gdb'
+	},
+	{
+			"OXY2DEV/markview.nvim",
+			lazy = false,      -- Recommended
+			-- ft = "markdown" -- If you decide to lazy-load anyway
+
+			dependencies = {
+					"nvim-treesitter/nvim-treesitter",
+					"nvim-tree/nvim-web-devicons"
+			}
 	},
 })
