@@ -45,6 +45,7 @@ o.splitright = true -- default behaviour of a vertical split is to the right of 
 o.termguicolors = true
 o.wrap = true
 o.linebreak = true
+o.background = 'light'
 
 vim.diagnostic.config({
 	virtual_text = false

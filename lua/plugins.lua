@@ -68,6 +68,15 @@ require("lazy").setup({
 		"VonHeikemen/lsp-zero.nvim",
 		branch = "v3.x",
 	},
+	{
+		'nvim-java/nvim-java',
+		config = function()
+			require('java').setup()
+		end,
+	},
+	-- {
+	-- 	'mfussenegger/nvim-jdtls'
+	-- },
 	"neovim/nvim-lspconfig",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/nvim-cmp",
@@ -218,9 +227,9 @@ require("lazy").setup({
 			 local fm = require 'fluoromachine'
 
 			 fm.setup {
-					glow = true,
+					glow = false,
 					theme = 'fluoromachine',
-					transparent = true,
+					-- transparent = true,
 			 }
 
 			 vim.cmd.colorscheme 'fluoromachine'
@@ -237,6 +246,14 @@ require("lazy").setup({
 			dependencies = {
 					"nvim-treesitter/nvim-treesitter",
 					"nvim-tree/nvim-web-devicons"
+			},
+			opts = {
+				initial_state = false
 			}
 	},
+	-- {
+	-- 	"benlubas/molten-nvim",
+	-- 	version = "^1.0.0",
+	-- 	build = ":UpdateRemotePlugins",
+	-- }
 })
