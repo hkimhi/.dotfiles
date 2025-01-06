@@ -30,6 +30,11 @@ vim.keymap.set("n", "<leader>h", ":lua vim.diagnostic.open_float()<CR>", { norem
 vim.keymap.set("n", "<C-_>", "gcc", { remap = true, silent = true })
 vim.keymap.set("v", "<C-_>", "gc", { remap = true, silent = true })
 
+-- https://github.com/kovidgoyal/kitty/discussions/5554
+-- kitty terminal doesn't recognize <C-_>, needs <C-/>
+vim.keymap.set("n", "<C-/>", "gcc", { remap = true, silent = true })
+vim.keymap.set("v", "<C-/>", "gc", { remap = true, silent = true })
+
 -- don't copy text when deleting by throwing it all into the black hole register ("_)
 -- vim.keymap.set("n", "d", '"_d', { remap = false, silent = true })
 -- vim.keymap.set("v", "d", '"_d', { remap = false, silent = true })
