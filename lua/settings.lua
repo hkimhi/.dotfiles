@@ -16,7 +16,7 @@ vim.cmd.colorscheme("fluoromachine")
 
 -- vim.treesitter.start()
 
-vim.opt.spell = true
+vim.opt.spell = false
 -- vim.opt.spelllang = { "en_ca" }
 
 o.number = true -- Print the line number in front of each line

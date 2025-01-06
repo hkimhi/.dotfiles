@@ -20,6 +20,14 @@ api.nvim_create_autocmd("BufEnter", {
 	command = "set filetype=json",
 })
 
+-- turn on spell checking for text files
+local spell_group = api.nvim_create_augroup("enable_spell_check", { clear = true })
+api.nvim_create_autocmd("FileType", {
+	group = spell_group,
+	pattern = { "text", "markdown", "gitcommit", "latex" },
+	command = "setlocal spell",
+})
+
 -- format on write
 -- api.nvim_create_augroup("__formatter__", { clear = true })
 -- api.nvim_create_autocmd("BufWritePost", {
