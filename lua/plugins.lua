@@ -251,9 +251,27 @@ require("lazy").setup({
 				initial_state = false
 			}
 	},
-	-- {
-	-- 	"benlubas/molten-nvim",
-	-- 	version = "^1.0.0",
-	-- 	build = ":UpdateRemotePlugins",
-	-- }
+	{
+		"benlubas/molten-nvim",
+		version = "^1.0.0",
+		build = ":UpdateRemotePlugins",
+		dependencies = {
+			"3rd/image.nvim",
+		},
+		init = function()
+			g.molten_image_provider = "image.nvim"
+			g.molten_output_win_max_height = 20
+		end
+	},
+	{
+		"3rd/image.nvim",
+		opts = {
+			-- processor = "magick_cli",
+			max_width = 100,
+			max_height = 12,
+			max_height_window_percentage = math.huge,
+			max_width_window_percentage = math.huge,
+			window_overlap_clear_enabled = true,
+		}
+	},
 })
