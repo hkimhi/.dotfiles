@@ -1,0 +1,3 @@
+Required tooling:
+
+* GNU Stow

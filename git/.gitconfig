@@ -1,0 +1,15 @@
+[user]
+	email = hodkimhi@gmail.com
+	name = Hod Kimhi
+[alias]
+	logg = log --graph --all --oneline
+[init]
+	defaultBranch = main
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[core]
+	editor = nvim
+	excludesFile = ~/.gitignore
