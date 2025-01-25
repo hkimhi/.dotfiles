@@ -42,5 +42,10 @@ for app in ${useronly[@]}; do
 	fi
 done
 
+# setup fonts
+mkdir -p ~/.local/share/fonts
+cp fonts/*.ttf ~/.local/share/fonts
+fc-cache -f -v
+
 echo ""
 echo "#### ALL DONE"
