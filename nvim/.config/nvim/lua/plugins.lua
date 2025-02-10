@@ -17,6 +17,13 @@ vim.opt.rtp:prepend(lazypath)
 
 -- add plugins here, of the form {<name>, <options>}
 require("lazy").setup({
+	-- {
+	-- 	"vhyrro/luarocks.nvim",
+	-- 	priority = 1001,
+	-- 	opts = {
+	-- 		rocks = { "magick" },
+	-- 	},
+	-- },
 	-- {"ms-jpq/coq_nvim", branch='coq'},
 	{
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
@@ -248,7 +255,7 @@ require("lazy").setup({
 					"nvim-tree/nvim-web-devicons"
 			},
 			opts = {
-				initial_state = false
+				preview = false,
 			}
 	},
 	{
@@ -265,8 +272,11 @@ require("lazy").setup({
 	},
 	{
 		"3rd/image.nvim",
+		-- dependencies = {
+		-- 	"luarocks.nvim",
+		-- },
 		opts = {
-			-- processor = "magick_cli",
+			processor = "magick_cli",
 			max_width = 100,
 			max_height = 12,
 			max_height_window_percentage = math.huge,
