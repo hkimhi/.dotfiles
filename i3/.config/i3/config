@@ -187,6 +187,7 @@ bindsym $mod+r mode "resize"
 ## CUSTOM STUFF ##
 # start picom
 exec --no-startup-id picom -b
+exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpapers/rocket-league-dark.jpg
 
 # lock screen with $mod+l
 bindsym $mod+BackSpace exec i3lock
