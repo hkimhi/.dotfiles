@@ -194,6 +194,9 @@ bindsym $mod+BackSpace exec i3lock
 # start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+# start dunst
+exec_always --no-startup-id dunst
+
 # brightness down
 bindcode 232 exec brightnessctl set 5%-
 
