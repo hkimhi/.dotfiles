@@ -211,5 +211,5 @@ bindsym XF86AudioPlay exec playerctl play-pause
 
 # gaps
 gaps outer 6
-gaps top 0
+gaps top 40px
 gaps inner 8
