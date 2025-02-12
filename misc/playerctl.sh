@@ -10,11 +10,11 @@ font_play=6
 font=7
 
 playerctlstatus=$(playerctl status 2>/dev/null)
-title=$(playerctl metadata title 2>/dev/null)
-if [[ ${#title} -gt $max_len ]]; then
-	title="${title:0:$max_len}..."
-fi
-title="%{T$font}$title"
+
+
+title_format="{{ trunc(title, $max_len) }}"  # need this separate to pass in $max_len
+title="%{T$font}$(playerctl metadata --format "$title_format" )"
+# title="${title/%…/...}" # replace ellipses from playerctl truncate with three periods
 
 prev="%{T$font_icons}%{A1:playerctl previous:}%{A}%{T-}"
 next="%{T$font_icons}%{A1:playerctl next:}%{A}%{T-}"
