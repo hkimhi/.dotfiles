@@ -214,6 +214,6 @@ bindcode 107 exec maim -s | xclip -selection clipboard -t image/png
 bindsym XF86AudioPlay exec playerctl play-pause
 
 # gaps
-gaps outer 6
+gaps outer 6px
 gaps top 40px
-gaps inner 8
+gaps inner 8px
