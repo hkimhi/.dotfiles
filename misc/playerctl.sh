@@ -18,6 +18,7 @@ title="%{T$font}$(playerctl metadata --format "$title_format" )"
 
 prev="%{T$font_icons}%{A1:playerctl previous:}%{A}%{T-}"
 next="%{T$font_icons}%{A1:playerctl next:}%{A}%{T-}"
+progress="%{T$font}$(playerctl metadata --format '{{ duration(position) }} / {{ duration(mpris:length) }}' 2> /dev/null)"
 
 if [[ $playerctlstatus =~ "Playing" ]]; then
 	action="%{T$font_icons}%{A1:playerctl pause:}%{A}%{T-}"
@@ -25,7 +26,7 @@ else
 	action="%{T$font_play}%{A1:playerctl play:}%{A}%{T-}"
 fi
 
-format_str="$prev $action $next $title"
+format_str="$prev $iaction $inext $title ($progress)"
 if [[ $playerctlstatus == "" ]]; then
 	echo ""
 else
