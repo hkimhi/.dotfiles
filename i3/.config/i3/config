@@ -213,8 +213,10 @@ bindcode 148 exec xcalc
 bindcode 107 exec maim -s | xclip -selection clipboard -t image/png
 
 # play/pause
-# bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioPlay exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioPlay exec playerctl play-pause
+
+# start playerctld daemon to keep track of most recent player
+exec --no-startup-id playerctld daemon
 
 # gaps
 gaps outer 6px
