@@ -2,7 +2,7 @@
 
 time_format="%H:%M"
 time_pos="960:300"
-date_format="(%A) %b %d, %Y%"
+date_format="(%A) %b %d, %Y"
 indicator_pos="60:h-60"
 
 # --no-verify \
