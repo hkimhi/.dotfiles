@@ -194,6 +194,9 @@ exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpapers/rocket-league-dark
 # lock screen with $mod+l (lock.sh is in $PATH)
 bindsym $mod+BackSpace exec lock.sh
 
+# alt+tab for window switching
+bindsym $mod+Tab exec "rofi -show window -modes window"
+
 # start polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
