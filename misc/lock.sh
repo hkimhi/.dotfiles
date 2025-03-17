@@ -1,13 +1,15 @@
 #!/usr/bin/env bash
 
 time_format="%H:%M"
-time_pos="960:300"
+time_pos="960+w:300"
 date_format="(%A) %b %d, %Y"
-indicator_pos="60:h-60"
+indicator_pos="60+w:h-60"
+# image="/home/hod/Pictures/wallpapers/rocket-league-light.png"
+image="/home/hod/Pictures/wallpapers/cypress-bowl-lookout.jpg"
 
 # --no-verify \
 i3lock \
-	-Li ~/Pictures/wallpapers/rocket-league-light.png \
+	-Li "$image" \
 	-k \
 	--indicator \
 	--radius 30 \
