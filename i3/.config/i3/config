@@ -227,6 +227,9 @@ bindsym XF86AudioPrev exec playerctl previous
 # start playerctld daemon to keep track of most recent player
 exec --no-startup-id playerctld daemon
 
+# disable middle moust paste, so goddamn annoying
+exec --no-startup-id xmousepasteblock
+
 # gaps
 gaps outer 6px
 gaps top 40px
