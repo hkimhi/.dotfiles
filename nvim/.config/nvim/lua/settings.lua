@@ -50,3 +50,5 @@ o.background = 'light'
 vim.diagnostic.config({
 	virtual_text = false
 })
+
+o.guicursor="n-v-c:block-Cursor,i-ci-ve:ver25-Cursor,r-cr:hor20,o:hor50"
