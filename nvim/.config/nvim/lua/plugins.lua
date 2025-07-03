@@ -284,4 +284,5 @@ require("lazy").setup({
 			window_overlap_clear_enabled = true,
 		}
 	},
+	"lambdalisue/vim-suda",
 })
