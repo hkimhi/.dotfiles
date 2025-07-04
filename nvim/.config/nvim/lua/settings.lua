@@ -46,9 +46,11 @@ o.termguicolors = true
 o.wrap = true
 o.linebreak = true
 o.background = 'light'
+vim.opt.completeopt = { "menuone", "noselect", "popup" }
 
 vim.diagnostic.config({
-	virtual_text = false
+	virtual_text = false,
+	virtual_lines = false,
 })
 
 o.guicursor="n-v-c:block-Cursor,i-ci-ve:ver25-Cursor,r-cr:hor20,o:hor50"
