@@ -192,8 +192,12 @@ exec --no-startup-id picom -b
 # set background image
 exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpapers/rocket-league-dark.jpg
 
-# lock screen with $mod+l (lock.sh is in $PATH)
-bindsym $mod+BackSpace exec lock.sh
+# lock with $mod + backspace
+bindsym $mod+BackSpace exec betterlockscreen -l --time-format "%I:%M %p"
+
+# move workspaces between monitors
+bindsym $mod+Shift+greater move workspace to output next
+bindsym $mod+Shift+less move workspace to output left
 
 # alt+tab for window switching
 bindsym $mod+Tab exec "rofi -show window -modes window"
@@ -231,3 +235,17 @@ exec --no-startup-id xmousepasteblock
 gaps outer 6px
 gaps top 40px
 gaps inner 8px
+
+# default workspaces
+workspace 1 output DP-1
+workspace 2 output DP-2
+
+# audio controls
+# bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
+# bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+
+# Media player controls
+bindsym XF86AudioPlay exec playerctl play-pause
+# bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous

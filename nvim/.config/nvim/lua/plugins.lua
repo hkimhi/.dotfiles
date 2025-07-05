@@ -25,21 +25,21 @@ require("lazy").setup({
 	-- 	},
 	-- },
 	-- {"ms-jpq/coq_nvim", branch='coq'},
-	{
-		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-		config = function()
-			require("lsp_lines").setup()
-
-			-- Disable virtual_text since it's redundant due to lsp_lines
-			vim.diagnostic.config({
-				virtual_text = false,
-			})
-
-			-- use <Leader>l to toggle lsp_lines
-			vim.keymap.set("", "<Leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
-		end,
-		enabled = false,
-	},
+	-- {
+	-- 	"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+	-- 	config = function()
+	-- 		require("lsp_lines").setup()
+	--
+	-- 		-- Disable virtual_text since it's redundant due to lsp_lines
+	-- 		vim.diagnostic.config({
+	-- 			virtual_text = false,
+	-- 		})
+	--
+	-- 		-- use <Leader>l to toggle lsp_lines
+	-- 		vim.keymap.set("", "<Leader>l", require("lsp_lines").toggle, { desc = "Toggle lsp_lines" })
+	-- 	end,
+	-- 	enabled = false,
+	-- },
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
@@ -65,22 +65,20 @@ require("lazy").setup({
 	},
 	{
 		"nvim-treesitter/nvim-treesitter",
+		lazy = false,
 		config = function()
 			-- vim.o.foldexpr=nvim_treesitter#foldexpr()
 			vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
 		end,
+		dependencies = { "OXY2DEV/markview.nvim" },
 	},
 	-- "mbbill/undotree",
-	{
-		"VonHeikemen/lsp-zero.nvim",
-		branch = "v3.x",
-	},
-	{
-		'nvim-java/nvim-java',
-		config = function()
-			require('java').setup()
-		end,
-	},
+	-- {
+	-- 	'nvim-java/nvim-java',
+	-- 	config = function()
+	-- 		require('java').setup()
+	-- 	end,
+	-- },
 	-- {
 	-- 	'mfussenegger/nvim-jdtls'
 	-- },
@@ -89,8 +87,36 @@ require("lazy").setup({
 	"hrsh7th/nvim-cmp",
 	-- "SirVer/ultisnips",
 	-- "honza/vim-snippets",
-	"williamboman/mason.nvim",
-	"williamboman/mason-lspconfig.nvim",
+	-- "mason-org/mason.nvim",
+	{
+		"mason-org/mason-lspconfig.nvim",
+		opts = {
+			ensure_installed = {
+				"ast_grep",
+				"cssls",
+				"html",
+				"bashls",
+				"lua_ls",
+				"pylsp",
+				"clangd",
+			},
+		},
+		dependencies = {
+			{
+				"mason-org/mason.nvim",
+				opts = {
+					formatters = {
+						clangformat = {
+							command = "clang-format",
+							args = { "-style=Google" },
+							filetype = true,
+						},
+					},
+				},
+			},
+			"neovim/nvim-lspconfig",
+		},
+	},
 	"mhartington/formatter.nvim",
 	"folke/which-key.nvim",
 	"folke/zen-mode.nvim",
@@ -195,7 +221,6 @@ require("lazy").setup({
 	-- "mfussenegger/nvim-dap",
 	-- "mfussenegger/nvim-dap-python",
 	"hiphish/rainbow-delimiters.nvim",
-	-- "HallerPatrick/py_lsp.nvim",
 	"jiangmiao/auto-pairs",
 	"lukas-reineke/indent-blankline.nvim",
 	"tpope/vim-surround",
@@ -212,51 +237,51 @@ require("lazy").setup({
 		"kawre/leetcode.nvim",
 		build = ":TSUpdate html",
 		dependencies = {
-				"nvim-telescope/telescope.nvim",
-				"nvim-lua/plenary.nvim", -- required by telescope
-				"MunifTanjim/nui.nvim",
+			"nvim-telescope/telescope.nvim",
+			"nvim-lua/plenary.nvim", -- required by telescope
+			"MunifTanjim/nui.nvim",
 
-				-- optional
-				"nvim-treesitter/nvim-treesitter",
-				"rcarriga/nvim-notify",
-				"nvim-tree/nvim-web-devicons",
+			-- optional
+			"nvim-treesitter/nvim-treesitter",
+			"rcarriga/nvim-notify",
+			"nvim-tree/nvim-web-devicons",
 		},
 		opts = {
-				-- configuration goes here
-				lang = "python3"
+			-- configuration goes here
+			lang = "python3",
 		},
 	},
 	{
-			'maxmx03/fluoromachine.nvim',
-			lazy = false,
-			priority = 1000,
-			config = function ()
-			 local fm = require 'fluoromachine'
+		"maxmx03/fluoromachine.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			local fm = require("fluoromachine")
 
-			 fm.setup {
-					glow = false,
-					theme = 'fluoromachine',
-					-- transparent = true,
-			 }
-
-			 vim.cmd.colorscheme 'fluoromachine'
-			end
+			fm.setup({
+				glow = false,
+				theme = "fluoromachine",
+				-- transparent = true,
+			})
+		end,
 	},
 	{
-		'sakhnik/nvim-gdb'
+		"sakhnik/nvim-gdb",
 	},
 	{
-			"OXY2DEV/markview.nvim",
-			lazy = false,      -- Recommended
-			-- ft = "markdown" -- If you decide to lazy-load anyway
+		"OXY2DEV/markview.nvim",
+		lazy = false, -- Recommended
+		-- ft = "markdown" -- If you decide to lazy-load anyway
 
-			dependencies = {
-					"nvim-treesitter/nvim-treesitter",
-					"nvim-tree/nvim-web-devicons"
-			},
-			opts = {
-				preview = false,
-			}
+		dependencies = {
+			"nvim-tree/nvim-web-devicons",
+		},
+		opts = {
+			preview = false,
+		},
+		-- lower prio than treesitter (default prio is 50) to fix load order
+		-- https://github.com/OXY2DEV/markview.nvim/issues/365
+		priority = 49,
 	},
 	{
 		"benlubas/molten-nvim",
@@ -268,7 +293,7 @@ require("lazy").setup({
 		init = function()
 			g.molten_image_provider = "image.nvim"
 			g.molten_output_win_max_height = 20
-		end
+		end,
 	},
 	{
 		"3rd/image.nvim",
@@ -282,6 +307,15 @@ require("lazy").setup({
 			max_height_window_percentage = math.huge,
 			max_width_window_percentage = math.huge,
 			window_overlap_clear_enabled = true,
-		}
+		},
+	},
+	"lambdalisue/vim-suda",
+	{
+		"kosayoda/nvim-lightbulb",
+		opts = {
+			autocmd = {
+				enabled = true,
+			},
+		},
 	},
 })

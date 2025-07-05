@@ -1,0 +1,9 @@
+require("mason").setup({
+	formatters = {
+		clangformat = {
+			command = "clang-format",
+			args = { "-style=Google" },
+			filetype = true,
+		},
+	},
+})
