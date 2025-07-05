@@ -70,7 +70,6 @@ require("lazy").setup({
 			-- vim.o.foldexpr=nvim_treesitter#foldexpr()
 			vim.cmd("set foldexpr=nvim_treesitter#foldexpr()")
 		end,
-		dependencies = { "OXY2DEV/markview.nvim" },
 	},
 	-- "mbbill/undotree",
 	-- {
@@ -269,20 +268,29 @@ require("lazy").setup({
 		"sakhnik/nvim-gdb",
 	},
 	{
-		"OXY2DEV/markview.nvim",
-		lazy = false, -- Recommended
-		-- ft = "markdown" -- If you decide to lazy-load anyway
-
-		dependencies = {
-			"nvim-tree/nvim-web-devicons",
-		},
-		opts = {
-			preview = false,
-		},
-		-- lower prio than treesitter (default prio is 50) to fix load order
-		-- https://github.com/OXY2DEV/markview.nvim/issues/365
-		priority = 49,
+		"MeanderingProgrammer/render-markdown.nvim",
+		-- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
 	},
+	-- {
+	-- 	"OXY2DEV/markview.nvim",
+	-- 	lazy = false, -- Recommended
+	-- 	-- ft = "markdown" -- If you decide to lazy-load anyway
+	--
+	-- 	dependencies = {
+	-- 		"nvim-tree/nvim-web-devicons",
+	-- 	},
+	-- 	opts = {
+	-- 		preview = false,
+	-- 	},
+	-- 	-- lower prio than treesitter (default prio is 50) to fix load order
+	-- 	-- https://github.com/OXY2DEV/markview.nvim/issues/365
+	-- 	priority = 49,
+	-- },
 	{
 		"benlubas/molten-nvim",
 		version = "^1.0.0",
