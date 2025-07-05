@@ -39,15 +39,15 @@ vim.keymap.set("v", "<C-/>", "gc", { remap = true, silent = true })
 -- vim.keymap.set("n", "d", '"_d', { remap = false, silent = true })
 -- vim.keymap.set("v", "d", '"_d', { remap = false, silent = true })
 
-vim.api.nvim_set_keymap('n', '<leader>l', ':lua ToggleVirtualLines()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>;', ':lua ToggleVirtualText()<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>l", ":lua ToggleVirtualLines()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<leader>;", ":lua ToggleVirtualText()<CR>", { noremap = true, silent = true })
 
 function ToggleVirtualText()
-  local current_state = vim.diagnostic.config().virtual_text
-  vim.diagnostic.config({ virtual_text = not current_state })
+	local current_state = vim.diagnostic.config().virtual_text
+	vim.diagnostic.config({ virtual_text = not current_state })
 end
 
 function ToggleVirtualLines()
-  local current_state = vim.diagnostic.config().virtual_lines
-  vim.diagnostic.config({ virtual_lines = not current_state })
+	local current_state = vim.diagnostic.config().virtual_lines
+	vim.diagnostic.config({ virtual_lines = not current_state })
 end

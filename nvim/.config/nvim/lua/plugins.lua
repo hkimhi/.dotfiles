@@ -1,5 +1,5 @@
-api = vim.api
-g = vim.g
+local api = vim.api
+local g = vim.g
 
 -- lazy.nvim package manager setup
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -266,6 +266,7 @@ require("lazy").setup({
 	},
 	{
 		"sakhnik/nvim-gdb",
+		enabled = false,
 	},
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
