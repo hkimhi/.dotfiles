@@ -220,7 +220,7 @@ bindcode 148 exec xcalc
 # prt screen
 bindcode 107 exec maim -s | xclip -selection clipboard -t image/png
 
-# play/pause
+# media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
@@ -243,9 +243,3 @@ workspace 2 output DP-2
 # audio controls
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 # bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
-
-# Media player controls
-bindsym XF86AudioPlay exec playerctl play-pause
-# bindsym XF86AudioPause exec playerctl pause
-bindsym XF86AudioNext exec playerctl next
-bindsym XF86AudioPrev exec playerctl previous
