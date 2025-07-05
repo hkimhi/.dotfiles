@@ -51,3 +51,5 @@ function ToggleVirtualLines()
 	local current_state = vim.diagnostic.config().virtual_lines
 	vim.diagnostic.config({ virtual_lines = not current_state })
 end
+
+vim.api.nvim_set_keymap("n", "<leader>r", ":RenderMarkdown toggle<CR>", { noremap = true, silent = true })
