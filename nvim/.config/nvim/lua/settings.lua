@@ -11,7 +11,8 @@ vim.scriptencoding = "utf-8"
 -- vim.cmd.colorscheme("desert")
 -- vim.cmd.colorscheme("nordfox")
 -- vim.cmd.colorscheme("dawnfox")
-vim.cmd.colorscheme("fluoromachine")
+-- vim.cmd.colorscheme("fluoromachine")
+vim.cmd.colorscheme("retrobox")
 
 -- vim.treesitter.start()
 
@@ -44,7 +45,7 @@ opt.splitright = true -- default behaviour of a vertical split is to the right o
 opt.termguicolors = true
 opt.wrap = false
 opt.linebreak = true
-opt.background = "light"
+opt.background = "dark"
 opt.completeopt = { "menuone", "noselect", "popup" }
 
 vim.diagnostic.config({
