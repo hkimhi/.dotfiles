@@ -193,7 +193,7 @@ exec --no-startup-id picom -b
 exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpapers/rocket-league-dark.jpg
 
 # lock with $mod + backspace
-bindsym $mod+BackSpace exec betterlockscreen -l --time-format "%I:%M %p"
+bindsym $mod+BackSpace exec lock.sh
 
 # move workspaces between monitors
 bindsym $mod+Shift+greater move workspace to output next
