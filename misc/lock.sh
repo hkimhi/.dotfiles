@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
 time_format="%H:%M"
-time_pos="960+w:300"
+# time_pos="960+w:300"
+time_pos="960+ix:300"
 date_format="(%A) %b %d, %Y"
-indicator_pos="60+w:h-60"
-# image="/home/hod/Pictures/wallpapers/rocket-league-light.png"
-image="/home/hod/Pictures/wallpapers/cypress-bowl-lookout.jpg"
+# indicator_pos="60+w:h-60"
+indicator_pos="60:h-60"
+image="/home/hod/Pictures/wallpapers/rocket-league-light.png"
+# image="/home/hod/Pictures/wallpapers/cypress-bowl-lookout.jpg"
 
 # --no-verify \
 i3lock \
@@ -26,4 +28,6 @@ i3lock \
 	--timeoutline-width=1 \
 	--time-size=80 \
 	--date-str="$date_format" \
-	--date-size=20
+	--date-size=20 \
+	--verif-text="" \
+	--wrong-text=""

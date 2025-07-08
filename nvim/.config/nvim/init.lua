@@ -15,3 +15,20 @@ require("config.indent-blankline")
 -- require('config.mini')
 -- require("config.nvim-dap")
 -- require("config.hologram")
+
+-- theme stuff
+local theme_file = os.getenv("HOME") .. "/.theme_state"
+local theme = "dark" -- fallback
+local file = io.open(theme_file, "r")
+if file then
+	theme = file:read("*l")
+	file:close()
+end
+
+if theme == "dark" then
+	vim.cmd.colorscheme("retrobox")
+	vim.opt.background = "dark"
+else
+	vim.cmd.colorscheme("solarized")
+	vim.opt.background = "light"
+end
