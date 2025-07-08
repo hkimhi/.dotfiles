@@ -2,7 +2,7 @@
 	email = hodkimhi@gmail.com
 	name = Hod Kimhi
 [alias]
-	logg = log --graph --all --oneline
+	logg = log --graph --oneline
 [init]
 	defaultBranch = main
 [filter "lfs"]
