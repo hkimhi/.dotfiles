@@ -14,4 +14,14 @@ else
 	polybar 2>&1 | tee -a /tmp/polybar.log & disown
 fi
 
+# wait until IPC is ready
+while [ -z "$(ls /tmp/polybar_mqueue.* 2>/dev/null)" ]; do
+	sleep 0.1
+done
+
+# hide "battery gap" module for consistent spacing on desktop with ipc
+if ! ls /sys/class/power_supply/BAT* > /dev/null 2>&1; then
+	polybar-msg action gap-battery module_hide
+fi
+
 echo "Polybar(s) launched..."
