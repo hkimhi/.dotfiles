@@ -6,7 +6,7 @@ polybar-msg cmd quit
 
 # launch polybar on all monitors
 if type "xrandr" > /dev/null 2>&1; then
-	for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+	for m in $(xrandr --query | grep " connected" | cut -d" " -f1 | tac); do
 		MONITOR=$m polybar --reload 2>&1 | tee -a /tmp/polybar_"$m".log & disown
 	done
 else
