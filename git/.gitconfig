@@ -3,6 +3,7 @@
 	name = Hod Kimhi
 [alias]
 	logg = log --graph --oneline
+	log2 = log --graph --all --decorate --pretty=format:'%C(auto)%h %d %s%n'
 [init]
 	defaultBranch = main
 [filter "lfs"]
