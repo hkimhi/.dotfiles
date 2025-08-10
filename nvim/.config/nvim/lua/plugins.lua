@@ -129,6 +129,12 @@ require("lazy").setup({
 			"3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 		},
 		opts = {
+			sources = {
+				"filesystem",
+				"buffers",
+				"git_status",
+				"document_symbols" -- non-default option
+			},
 			event_handlers = {
 				{
 					event = "neo_tree_window_after_open",
