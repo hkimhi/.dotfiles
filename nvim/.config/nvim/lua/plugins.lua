@@ -128,6 +128,16 @@ require("lazy").setup({
 			"MunifTanjim/nui.nvim",
 			"3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
 		},
+		opts = {
+			event_handlers = {
+				{
+					event = "neo_tree_window_after_open",
+					handler = function()
+						vim.opt_local.foldcolumn = "0"
+					end,
+				},
+			},
+		},
 	},
 	{
 		"nvim-lualine/lualine.nvim",

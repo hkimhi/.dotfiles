@@ -50,11 +50,33 @@ vim.api.nvim_create_autocmd("BufRead", {
 })
 
 -- autocompletion from LSP
-vim.api.nvim_create_autocmd("LspAttach", {
+api.nvim_create_autocmd("LspAttach", {
 	callback = function(ev)
 		local client = vim.lsp.get_client_by_id(ev.data.client_id)
 		if client:supports_method("textDocument/completion") then
 			vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+		end
+	end,
+})
+
+-- set foldexpr to expression if possible
+-- https://stackoverflow.com/questions/77220511/neovim-fold-code-with-foldmethod-syntax-or-foldmethod-expr-depending-on-tre
+api.nvim_create_autocmd("FileType", {
+	callback = function()
+		local filetype = vim.bo.filetype
+		-- hide foldcolumn on certain buffers
+		if filetype == "help" then
+			vim.opt_local.foldcolumn = "0"
+			return
+		end
+
+		-- set foldmethod if treesitter parser available
+		if filetype == "html" or filetype == "htmldjango" then
+			vim.opt.foldmethod = "indent"
+		elseif require("nvim-treesitter.parsers").has_parser() then
+			vim.opt.foldmethod = "expr"
+		else
+			vim.opt.foldmethod = "syntax"
 		end
 	end,
 })
