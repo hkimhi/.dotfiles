@@ -48,6 +48,7 @@ opt.linebreak = true
 opt.background = "dark"
 opt.completeopt = { "menuone", "noselect", "popup" }
 opt.foldcolumn = "4"
+opt.foldlevel = 8
 
 vim.diagnostic.config({
 	virtual_text = false,

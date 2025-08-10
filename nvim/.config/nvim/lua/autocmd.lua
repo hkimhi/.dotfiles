@@ -20,12 +20,16 @@ api.nvim_create_autocmd("BufEnter", {
 	command = "set filetype=json",
 })
 
--- turn on spell checking for text files
+-- turn on spell checking, wrapping, and hide fold column for text files
 local spell_group = api.nvim_create_augroup("enable_spell_check", { clear = true })
 api.nvim_create_autocmd("FileType", {
-	group = spell_group,
 	pattern = { "text", "markdown", "gitcommit", "latex" },
-	command = "setlocal spell",
+	group = spell_group,
+	callback = function()
+		vim.opt_local.spell = true
+		vim.opt_local.wrap = true
+		vim.opt_local.foldcolumn = "0"
+	end
 })
 
 -- format on write
@@ -70,12 +74,13 @@ api.nvim_create_autocmd("FileType", {
 			return
 		end
 
-		-- set foldmethod if treesitter parser available
 		if filetype == "html" or filetype == "htmldjango" then
 			vim.opt.foldmethod = "indent"
 		elseif require("nvim-treesitter.parsers").has_parser() then
+			-- set foldmethod to expr if treesitter parser available
 			vim.opt.foldmethod = "expr"
 		else
+			-- default to syntax
 			vim.opt.foldmethod = "syntax"
 		end
 	end,
