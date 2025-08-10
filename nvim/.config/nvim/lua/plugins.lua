@@ -119,38 +119,6 @@ require("lazy").setup({
 	"mhartington/formatter.nvim",
 	"folke/which-key.nvim",
 	"folke/zen-mode.nvim",
-	-- {
-	-- 	"ms-jpq/chadtree",
-	-- 	lazy = false,
-	-- 	priority = 1000,
-	-- 	branch = "chad",
-	-- 	build = function()
-	-- 		vim.cmd("CHADdeps")
-	-- 	end,
-	-- 	config = function()
-	-- 		-- open chadtree when entering vim
-	-- 		api.nvim_create_autocmd("VimEnter", {
-	-- 			command = "CHADopen --nofocus",
-	-- 		})
-	--
-	-- 		-- if CHADTree is the only remanining window, close neovim
-	-- 		api.nvim_command(
-	-- 			"autocmd BufEnter * if(winnr('$') == 1 && &buftype == 'nofile' && &filetype == 'CHADTree') | q! | endif"
-	-- 		)
-	--
-	-- 		-- set CHADTree width to 32 columns, and disable icon colours
-	-- 		api.nvim_set_var("chadtree_settings", {
-	-- 			view = {
-	-- 				width = 32,
-	-- 			},
-	-- 			theme = {
-	-- 				icon_colour_set = "github",
-	-- 			},
-	-- 		})
-	-- 	end,
-	-- },
-	-- "preservim/nerdtree",
-	-- {
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
@@ -165,10 +133,6 @@ require("lazy").setup({
 		"nvim-lualine/lualine.nvim",
 		config = true,
 	},
-	-- 	lazy = false,
-	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- 	priority = 1000,
-	-- },
 	"EdenEast/nightfox.nvim",
 	"lunarvim/Onedarker.nvim",
 	{
@@ -176,19 +140,6 @@ require("lazy").setup({
 		name = "catppuccin",
 	},
 	"ellisonleao/gruvbox.nvim",
-	-- {
-	-- 	"nvim-tree/nvim-tree.lua",
-	-- 	dependencies = { "nvim-tree/nvim-web-devicons" },
-	-- 	config = function()
-	-- 		require("nvim-tree").setup()
-	-- 	end,
-	-- 	enabled = false,
-	-- },
-	-- {
-	-- 	"echasnovski/mini.nvim",
-	-- 	version = false,
-	-- 	enabled = false,
-	-- },
 	{
 		"vidocqh/data-viewer.nvim",
 		opts = {},
@@ -231,7 +182,7 @@ require("lazy").setup({
 			{ "<leader>p", "<cmd>PasteImage<cr>", desc = "Paste image from system clipboard" },
 		},
 	},
-	"jannis-baum/vivify.vim",
+	-- "jannis-baum/vivify.vim",
 	{
 		"kawre/leetcode.nvim",
 		build = ":TSUpdate html",
