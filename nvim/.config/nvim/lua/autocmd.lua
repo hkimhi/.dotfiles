@@ -29,7 +29,7 @@ api.nvim_create_autocmd("FileType", {
 		vim.opt_local.spell = true
 		vim.opt_local.wrap = true
 		vim.opt_local.foldcolumn = "0"
-	end
+	end,
 })
 
 -- format on write
@@ -68,21 +68,26 @@ api.nvim_create_autocmd("LspAttach", {
 api.nvim_create_autocmd("FileType", {
 	callback = function()
 		local filetype = vim.bo.filetype
-		-- hide foldcolumn on certain buffers
-		if filetype == "help" then
-			vim.opt_local.foldcolumn = "0"
-			return
-		end
 
-		if filetype == "html" or filetype == "htmldjango" then
-			vim.opt.foldmethod = "indent"
-		elseif require("nvim-treesitter.parsers").has_parser() then
-			-- set foldmethod to expr if treesitter parser available
-			vim.opt.foldmethod = "expr"
-		else
-			-- default to syntax
-			vim.opt.foldmethod = "syntax"
-		end
+		-- defer setting foldmethod until end of event loop
+		-- mainly useful for `foldmethod=syntax` -> before this was
+		-- running before syntax was set so no folds were being generated
+		vim.schedule(function()
+			-- hide foldcolumn on certain buffers
+			if filetype == "help" then
+				vim.opt_local.foldcolumn = "0"
+				return
+			end
+
+			if filetype == "html" or filetype == "htmldjango" then
+				vim.opt_local.foldmethod = "indent"
+			elseif require("nvim-treesitter.parsers").has_parser() then
+				-- set foldmethod to expr if treesitter parser available
+				vim.opt_local.foldmethod = "expr"
+			else
+				-- default to syntax
+				vim.opt_local.foldmethod = "syntax"
+			end
+		end)
 	end,
 })
-
