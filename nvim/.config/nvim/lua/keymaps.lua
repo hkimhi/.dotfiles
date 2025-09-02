@@ -14,6 +14,10 @@ vim.keymap.set("n", "<Leader>ff", builtin.find_files, { desc = "Telescope find f
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Telescope help tags" })
+vim.keymap.set("n", "<leader>da", builtin.diagnostics, { silent = true, desc = "List diagnostics in all buffers" })
+vim.keymap.set("n", "<leader>dd", function()
+	builtin.diagnostics({ bufnr = 0 })
+end, { silent = true, desc = "List diagnostics in current buffer" })
 
 -- use CTRL+h to enter undotree
 -- vim.keymap.set("n", "<C-h>", vim.cmd.UndotreeToggle)
