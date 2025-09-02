@@ -84,6 +84,12 @@ require("lazy").setup({
 	"neovim/nvim-lspconfig",
 	"hrsh7th/cmp-nvim-lsp",
 	"hrsh7th/nvim-cmp",
+	{
+		"L3MON4D3/LuaSnip",
+		dependencies = {
+			"rafamadriz/friendly-snippets",
+		},
+	},
 	-- "SirVer/ultisnips",
 	-- "honza/vim-snippets",
 	-- "mason-org/mason.nvim",
@@ -133,7 +139,7 @@ require("lazy").setup({
 				"filesystem",
 				"buffers",
 				"git_status",
-				"document_symbols" -- non-default option
+				"document_symbols", -- non-default option
 			},
 			event_handlers = {
 				{
