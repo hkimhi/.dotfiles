@@ -307,8 +307,30 @@ require("lazy").setup({
 		"kosayoda/nvim-lightbulb",
 		opts = {
 			autocmd = {
-				enabled = true,
+				enabled = false,
 			},
 		},
+	},
+	{
+		"aznhe21/actions-preview.nvim",
+		opts = {
+			telescope = {
+				sorting_strategy = "ascending",
+				layout_strategy = "vertical",
+				layout_config = {
+					width = 0.7,
+					height = 0.8,
+					prompt_position = "bottom",
+					preview_cutoff = 20,
+					preview_height = function(_, _, max_lines)
+						return max_lines - 15
+					end,
+				},
+			},
+		},
+		config = function(_, opts)
+			require("actions-preview").setup(opts)
+			vim.keymap.set({ "v", "n" }, "gra", require("actions-preview").code_actions)
+		end,
 	},
 })
