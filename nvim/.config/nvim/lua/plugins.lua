@@ -89,6 +89,8 @@ require("lazy").setup({
 			"hrsh7th/cmp-nvim-lsp",
 			"hrsh7th/cmp-nvim-lsp-signature-help",
 			"hrsh7th/cmp-nvim-lsp-document-symbol",
+			"hrsh7th/cmp-cmdline",
+			"hrsh7th/cmp-path",
 			"f3fora/cmp-spell",
 			"saadparwaiz1/cmp_luasnip",
 		},

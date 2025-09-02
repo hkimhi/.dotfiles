@@ -8,7 +8,6 @@ require("luasnip.loaders.from_vscode").lazy_load()
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			-- vim.snippet.expand(args.body)
 			luasnip.lsp_expand(args.body)
 		end,
 	},
@@ -47,22 +46,9 @@ cmp.setup({
 			end
 		end, { "i", "s", "c" }),
 
-		--[[ ["<Tab>"] = cmp.mapping(function(fallback)
-			-- This little snippet will confirm with tab, and if no entry is selected, will confirm the first item
-			if cmp.visible() then
-				local entry = cmp.get_selected_entry()
-				if not entry then
-					cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
-				end
-				cmp.confirm()
-			else
-				fallback()
-			end
-		end, { "i", "s", "c" }), ]]
-
 		["<C-p>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
 		["<C-n>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
-		["<C-e>"] = cmp.mapping(cmp.mapping.abort(), { "i", "c" }),
+		["<C-e>"] = cmp.mapping({ i = cmp.mapping.abort(), c = cmp.mapping.close() }),
 		["<C-y>"] = cmp.mapping(cmp.mapping.confirm({ select = true }), { "i", "c" }),
 	},
 	sources = {
@@ -88,12 +74,15 @@ cmp.setup({
 				nvim_lua = "[Lua]",
 				path = "[Path]",
 				nvim_lsp_signature_help = "[Signature]",
-				cmdline = "[Vim Command]",
+				cmdline = "[Vim]",
 			}
 
 			item.menu = menu_icon[entry.source.name]
 			return item
 		end,
+	},
+	matching = {
+		disallow_fuzzy_matching = false,
 	},
 })
 
@@ -102,6 +91,12 @@ cmp.setup.cmdline("/", {
 		{ name = "nvim_lsp_document_symbol" },
 	}, {
 		{ name = "buffer" },
+	}),
+})
+cmp.setup.cmdline(":", {
+	sources = cmp.config.sources({
+		{ name = "path" },
+		{ name = "cmdline" },
 	}),
 })
 
