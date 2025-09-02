@@ -332,7 +332,7 @@ require("lazy").setup({
 		"kosayoda/nvim-lightbulb",
 		opts = {
 			code_lenses = true,
-			priority = 100,
+			priority = 50,
 			autocmd = {
 				enabled = true,
 			},
@@ -359,5 +359,15 @@ require("lazy").setup({
 			require("actions-preview").setup(opts)
 			vim.keymap.set({ "v", "n" }, "gra", require("actions-preview").code_actions)
 		end,
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		opts = {
+			sign_priority = 100,
+			current_line_blame = true,
+			current_line_blame_opts = {
+				delay = 10,
+			},
+		},
 	},
 })

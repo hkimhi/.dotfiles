@@ -51,7 +51,7 @@ opt.completeopt = { "menuone", "noselect", "popup" }
 opt.foldcolumn = "4"
 opt.foldlevel = 8
 opt.updatetime = 10 -- updatetime for CursorHold events
-opt.signcolumn = "yes"
+opt.signcolumn = "yes:2"
 opt.pumheight = 8
 
 vim.diagnostic.config({
