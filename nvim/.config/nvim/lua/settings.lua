@@ -11,8 +11,8 @@ vim.scriptencoding = "utf-8"
 -- vim.cmd.colorscheme("desert")
 -- vim.cmd.colorscheme("nordfox")
 -- vim.cmd.colorscheme("dawnfox")
--- vim.cmd.colorscheme("fluoromachine")
-vim.cmd.colorscheme("retrobox")
+vim.cmd.colorscheme("fluoromachine")
+-- vim.cmd.colorscheme("retrobox")
 
 -- vim.treesitter.start()
 
