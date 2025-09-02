@@ -188,10 +188,7 @@ require("lazy").setup({
 			},
 		},
 	},
-	{
-		"nvim-lualine/lualine.nvim",
-		config = true,
-	},
+	"nvim-lualine/lualine.nvim",
 	"EdenEast/nightfox.nvim",
 	"lunarvim/Onedarker.nvim",
 	{
@@ -211,7 +208,6 @@ require("lazy").setup({
 	-- "edluffy/hologram.nvim",
 	{
 		"ellisonleao/glow.nvim",
-		config = true,
 		cmd = "Glow",
 	},
 	"shaunsingh/solarized.nvim",
@@ -225,7 +221,6 @@ require("lazy").setup({
 	{
 		"numToStr/Comment.nvim",
 		lazy = false,
-		config = true,
 	},
 	-- "mfussenegger/nvim-dap",
 	-- "mfussenegger/nvim-dap-python",
