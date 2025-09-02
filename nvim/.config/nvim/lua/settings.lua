@@ -56,6 +56,14 @@ vim.diagnostic.config({
 	virtual_text = false,
 	virtual_lines = false,
 	severity_sort = true,
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = " ", -- ✘
+			[vim.diagnostic.severity.WARN] = " ", -- ▲
+			[vim.diagnostic.severity.HINT] = "⚑ ",
+			[vim.diagnostic.severity.INFO] = " ", -- »
+		},
+	},
 	float = {
 		border = "rounded",
 		source = "always",
@@ -63,20 +71,3 @@ vim.diagnostic.config({
 })
 
 opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr:hor20,o:hor50"
-
-vim.fn.sign_define("DiagnosticSignError", {
-	texthl = "DiagnosticSignError",
-	text = "✘",
-})
-vim.fn.sign_define("DiagnosticSignWarn", {
-	texthl = "DiagnosticSignWarn",
-	text = "▲",
-})
-vim.fn.sign_define("DiagnosticSignHint", {
-	texthl = "DiagnosticSignHint",
-	text = "⚑",
-})
-vim.fn.sign_define("DiagnosticSignInfo", {
-	texthl = "DiagnosticSignInfo",
-	text = "»",
-})
