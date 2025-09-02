@@ -17,7 +17,7 @@ require("config.indent-blankline")
 -- require("config.hologram")
 
 -- theme stuff
-local theme_file = os.getenv("HOME") .. "/.theme_state"
+--[[ local theme_file = os.getenv("HOME") .. "/.theme_state"
 local theme = "dark" -- fallback
 local file = io.open(theme_file, "r")
 if file then
@@ -31,4 +31,4 @@ if theme == "dark" then
 else
 	vim.cmd.colorscheme("solarized")
 	vim.opt.background = "light"
-end
+end ]]
