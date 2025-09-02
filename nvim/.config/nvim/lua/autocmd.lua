@@ -91,3 +91,23 @@ api.nvim_create_autocmd("FileType", {
 		end)
 	end,
 })
+
+-- lsp stuff
+api.nvim_create_autocmd("LspAttach", {
+	callback = function()
+		-- keybindings
+		vim.keymap.set("n", "grD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+		vim.keymap.set("n", "grd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+		vim.keymap.set("n", "grs", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
+
+		-- highlighting
+		api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
+			buffer = 0,
+			command = "lua vim.lsp.buf.document_highlight()",
+		})
+		api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
+			buffer = 0,
+			command = "lua vim.lsp.buf.clear_references()",
+		})
+	end,
+})
