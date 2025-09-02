@@ -23,12 +23,12 @@ end, { silent = true, desc = "List diagnostics in current buffer" })
 -- vim.keymap.set("n", "<C-h>", vim.cmd.UndotreeToggle)
 
 -- use <leader>f to format current buffer
-vim.keymap.set("n", "<leader>f", ":Format<CR>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<leader>f", ":Format<CR>", { silent = true })
 -- use <leader>F to format and write current buffer
-vim.keymap.set("n", "<leader>F", ":FormatWrite<CR>", { noremap = true, silent = true })
+-- vim.keymap.set("n", "<leader>F", ":FormatWrite<CR>", { silent = true })
 
 -- use <leader>h to open diagnostic float
-vim.keymap.set("n", "<leader>h", ":lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>h", ":lua vim.diagnostic.open_float()<CR>", { silent = true })
 
 -- use <C-/> to toggle line comment
 vim.keymap.set("n", "<C-_>", "gcc", { remap = true, silent = true })
@@ -43,8 +43,8 @@ vim.keymap.set("v", "<C-/>", "gc", { remap = true, silent = true })
 -- vim.keymap.set("n", "d", '"_d', { remap = false, silent = true })
 -- vim.keymap.set("v", "d", '"_d', { remap = false, silent = true })
 
-vim.api.nvim_set_keymap("n", "<leader>l", ":lua ToggleVirtualLines()<CR>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<leader>;", ":lua ToggleVirtualText()<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>l", ":lua ToggleVirtualLines()<CR>", { silent = true, desc = "Toggle virtual lines" })
+vim.keymap.set("n", "<leader>;", ":lua ToggleVirtualText()<CR>", { silent = true, desc = "Toggle virtual text" })
 
 function ToggleVirtualText()
 	local current_state = vim.diagnostic.config().virtual_text
@@ -56,4 +56,4 @@ function ToggleVirtualLines()
 	vim.diagnostic.config({ virtual_lines = not current_state })
 end
 
-vim.api.nvim_set_keymap("n", "<leader>r", ":RenderMarkdown toggle<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<leader>r", ":RenderMarkdown toggle<CR>", { silent = true, desc = "Toggle markdown rendering" })
