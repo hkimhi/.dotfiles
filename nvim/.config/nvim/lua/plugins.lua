@@ -82,8 +82,17 @@ require("lazy").setup({
 	-- 	'mfussenegger/nvim-jdtls'
 	-- },
 	"neovim/nvim-lspconfig",
-	"hrsh7th/cmp-nvim-lsp",
-	"hrsh7th/nvim-cmp",
+	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			"hrsh7th/cmp-buffer",
+			"hrsh7th/cmp-nvim-lsp",
+			"hrsh7th/cmp-nvim-lsp-signature-help",
+			"hrsh7th/cmp-nvim-lsp-document-symbol",
+			"f3fora/cmp-spell",
+			"saadparwaiz1/cmp_luasnip",
+		},
+	},
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = {
