@@ -5,7 +5,6 @@ require("keymaps")
 require("autocmd")
 
 -- plugin configs
-require("config.telescope-file-browser")
 require("config.formatter")
 require("config.cmp")
 require("config.indent-blankline")

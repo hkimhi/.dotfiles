@@ -43,11 +43,38 @@ require("lazy").setup({
 	{
 		"nvim-telescope/telescope.nvim",
 		branch = "0.1.x",
-		dependencies = { "nvim-lua/plenary.nvim" },
-	},
-	{
-		"nvim-telescope/telescope-file-browser.nvim",
-		dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+		lazy = false,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-telescope/telescope-file-browser.nvim",
+		},
+		opts = {
+			defaults = {
+				mappings = {
+					i = {
+						["<C-e>"] = "close",
+
+						-- reverse <Tab>/<S-Tab> and <C-n>/<C-p>
+						["<Tab>"] = "move_selection_better",
+						["<S-Tab>"] = "move_selection_worse",
+						["<C-n>"] = function(bufnr)
+							require("telescope.actions").toggle_selection(bufnr)
+							require("telescope.actions").move_selection_next(bufnr)
+						end,
+						["<C-p>"] = function(bufnr)
+							require("telescope.actions").toggle_selection(bufnr)
+							require("telescope.actions").move_selection_previous(bufnr)
+						end,
+					},
+				},
+			},
+			extensions = {
+				file_browser = {
+					hidden = true,
+					grouped = true,
+				},
+			},
+		},
 	},
 	{
 		"brenoprata10/nvim-highlight-colors",
