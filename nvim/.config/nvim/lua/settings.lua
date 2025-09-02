@@ -51,6 +51,7 @@ opt.foldcolumn = "4"
 opt.foldlevel = 8
 opt.updatetime = 10 -- updatetime for CursorHold events
 opt.signcolumn = "yes"
+opt.pumheight = 8
 
 vim.diagnostic.config({
 	virtual_text = false,
