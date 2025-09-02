@@ -327,8 +327,10 @@ require("lazy").setup({
 	{
 		"kosayoda/nvim-lightbulb",
 		opts = {
+			code_lenses = true,
+			priority = 100,
 			autocmd = {
-				enabled = false,
+				enabled = true,
 			},
 		},
 	},
