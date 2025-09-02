@@ -49,10 +49,34 @@ opt.background = "dark"
 opt.completeopt = { "menuone", "noselect", "popup" }
 opt.foldcolumn = "4"
 opt.foldlevel = 8
+opt.updatetime = 10 -- updatetime for CursorHold events
+opt.signcolumn = "yes"
 
 vim.diagnostic.config({
 	virtual_text = false,
 	virtual_lines = false,
+	severity_sort = true,
+	float = {
+		border = "rounded",
+		source = "always",
+	},
 })
 
 opt.guicursor = "n-v-c:block-Cursor/lCursor,i-ci-ve:ver25-Cursor/lCursor,r-cr:hor20,o:hor50"
+
+vim.fn.sign_define("DiagnosticSignError", {
+	texthl = "DiagnosticSignError",
+	text = "✘",
+})
+vim.fn.sign_define("DiagnosticSignWarn", {
+	texthl = "DiagnosticSignWarn",
+	text = "▲",
+})
+vim.fn.sign_define("DiagnosticSignHint", {
+	texthl = "DiagnosticSignHint",
+	text = "⚑",
+})
+vim.fn.sign_define("DiagnosticSignInfo", {
+	texthl = "DiagnosticSignInfo",
+	text = "»",
+})
