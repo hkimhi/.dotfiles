@@ -49,13 +49,17 @@ require("lazy").setup({
 		},
 		opts = {
 			defaults = {
+				-- sorting_strategy = "ascending",
+				-- layout_config = {
+				-- 	prompt_position = "top"
+				-- },
 				mappings = {
 					i = {
 						["<C-e>"] = "close",
 
 						-- reverse <Tab>/<S-Tab> and <C-n>/<C-p>
-						["<Tab>"] = "move_selection_better",
-						["<S-Tab>"] = "move_selection_worse",
+						["<Tab>"] = "move_selection_worse",
+						["<S-Tab>"] = "move_selection_better",
 						["<C-n>"] = function(bufnr)
 							require("telescope.actions").toggle_selection(bufnr)
 							require("telescope.actions").move_selection_next(bufnr)
