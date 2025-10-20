@@ -46,10 +46,24 @@ bakcyn='\[\e[46m\]'   # Cyan
 bakwht='\[\e[47m\]'   # White
 txtrst='\[\e[0m\]'    # Text Reset
 
+# aliases
+if [ -f ~/.bash_aliases ]; then
+	source ~/.bash_aliases
+fi
 
 alias ls='ls --color=auto'
 alias ll='ls -al'
 alias l='ls -AlF'
 alias grep='grep --color=auto'
+
 # PS1='[\u@\h \W]\$ '
 PS1="${txtgrn}[${txtblu}\u${txtylw}@${txtpur}\h ${txtcyn}\W${txtgrn}]${txtrst}\$ "
+
+# nvm
+source /usr/share/nvm/init-nvm.sh
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init - -bash)"
+
