@@ -256,7 +256,7 @@ require("lazy").setup({
 		},
 		opts = {
 			-- configuration goes here
-			lang = "python3",
+			lang = "c",
 		},
 	},
 	{
