@@ -1,0 +1,41 @@
+#!/bin/sh
+
+txt_shutdown="Shutdown"
+txt_reboot="Reboot"
+txt_logout="Log out"
+txt_lock="Lock"
+txt_sleep="Sleep"
+lang_notification_name="Power manager"
+lang_notificaton_shutdown="A power off request has been sent. The computer should shut down in a moment."
+
+# Icons
+
+selected=$(
+    printf "%s\n%s\n%s\n%s\n%s\n" \
+        "$txt_lock" "$txt_logout" "$txt_sleep" "$txt_reboot" "$txt_shutdown"   | 
+    rofi -dmenu -p "powermenu" -lines 5
+)
+
+case $selected in
+	"$txt_shutdown")
+		notify-send "$lang_notification_name" "$lang_notificaton_shutdown"
+		shutdown -h now
+		;;
+
+	"$txt_reboot")
+		notify-send "$lang_notification_name" "$lang_notificaton_shutdown"
+		reboot
+		;;
+
+	"$txt_logout")
+		i3-msg exit
+		;;
+
+	"$txt_lock")
+		light-locker-command --lock
+		;;
+
+	"$txt_sleep")
+		systemctl sleep
+		;;
+esac
