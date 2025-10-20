@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# start firefox on workspace 1
+i3-msg 'workspace 1; exec /usr/bin/firefox'
+sleep 1
+
+# start spotify, betterbird, ferdium on workspace 10, tabbed
+i3-msg 'workspace 10; exec spotify-launcher; exec betterbird; exec ferdium; layout tabbed'
+sleep 1
+
+# start a kitty instance on workspace 2
+i3-msg 'workspace 2; exec kitty'
