@@ -238,8 +238,10 @@ gaps top 40px
 gaps inner 8px
 
 # default workspaces
-workspace 1 output DisplayPort-1
-workspace 3 output DisplayPort-3
+workspace 1 output nonprimary
+workspace 2 output primary
+workspace 3 output primary
+workspace 10 output primary
 
 # audio controls
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
