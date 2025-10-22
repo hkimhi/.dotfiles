@@ -6,8 +6,14 @@ polybar-msg cmd quit
 
 # launch polybar on all monitors
 if type "xrandr" > /dev/null 2>&1; then
-	for m in $(xrandr --query | grep " connected" | cut -d" " -f1 | tac); do
-		MONITOR=$m polybar --reload 2>&1 | tee -a /tmp/polybar_"$m".log & disown
+	xrandr --query | grep " connected" | while IFS=$"\n" read line; do
+		# get monitor name
+		monitor=$(echo $line | cut -d" " -f1)
+		# check if primary. if not primary, $primary will be empty
+		primary=$(echo $line | grep "primary")
+
+		# if $primary defined, substitue '-systray'
+		MONITOR=$monitor polybar --reload "bar1${primary:+"-systray"}" 2>&1 | tee -a /tmp/polybar_"$m".log & disown
 	done
 else
 	# single monitor fallback if can't find xrandr or something
