@@ -248,3 +248,11 @@ workspace 10 output primary
 # audio controls
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5%
 # bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5%
+
+# colors / borders
+# class                 border  backgr. text    indicator child_border
+client.focused          #7ff000 #7ff000 #7000f0 #7ff000   #7ff000
+# client.unfocused				#f0e800 #f0e800 #7ff000 #f0e800   #f0e800
+default_border pixel 2
+# bindsym $mod+t border toggle
+
