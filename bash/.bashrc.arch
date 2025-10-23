@@ -59,6 +59,9 @@ alias grep='grep --color=auto'
 # PS1='[\u@\h \W]\$ '
 PS1="${txtgrn}[${txtblu}\u${txtylw}@${txtpur}\h ${txtcyn}\W${txtgrn}]${txtrst}\$ "
 
+# enable Ctrl+s for forward incremental search in bash shells
+stty -ixon
+
 # nvm
 source /usr/share/nvm/init-nvm.sh
 
