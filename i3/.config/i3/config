@@ -199,8 +199,8 @@ exec --no-startup-id feh --bg-scale $HOME/Pictures/wallpapers/rocket-league-dark
 bindsym $mod+BackSpace exec lock.sh
 
 # move workspaces between monitors
-bindsym $mod+Shift+greater move workspace to output next
-bindsym $mod+Shift+less move workspace to output left
+bindsym $mod+Shift+period move workspace to output right
+bindsym $mod+Shift+comma move workspace to output left
 
 # alt+tab for window switching
 bindsym $mod+Tab exec "rofi -show window -modes window"
